@@ -58,7 +58,7 @@ logging.basicConfig(level=logging.DEBUG)
 def dot():
     logging.debug("dot")
     logging.info("singal on")
-    cmd = 'termux-vibrate -f -d '+str(DOT*1000)
+    cmd = 'termux-vibrate -f -d '+str(int(DOT*1000))
     try:
         ret = subprocess.call(cmd, shell=True)
     except OSError as e:
@@ -71,7 +71,7 @@ def dot():
 def dash():
     logging.debug("dash")
     logging.info("singal on")
-    cmd = 'termux-vibrate -f -d '+str(DOT*1000)
+    cmd = 'termux-vibrate -f -d '+str(int(DOT*1000))
     try:
         ret = subprocess.call(cmd, shell=True)
     except OSError as e:
