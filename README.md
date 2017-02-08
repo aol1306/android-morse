@@ -1,6 +1,6 @@
 # Installation
 
-1. Install two apps - Termux and Termux:API
+1. Install two apps - Termux and Termux:API (from Google Play).
 2. Run Termux
 3. Type commands:
 
