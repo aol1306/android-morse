@@ -5,7 +5,7 @@ import sys
 import subprocess
 
 # only set dot length
-DOT = 0.5
+DOT = 0.2
 DASH = 3*DOT
 
 
@@ -65,7 +65,6 @@ def dot():
         logging.error(e)
         logging.error("Install termux-api first!")
         quit()
-    time.sleep(DOT)
     logging.info("singal off")
 
 def dash():
@@ -78,7 +77,6 @@ def dash():
         logging.error(e)
         logging.error("Install termux-api first!")
         quit()
-    time.sleep(DASH)
     logging.info("singal off")
 
 def part_of_letter_sleep():
@@ -133,6 +131,9 @@ def transmit(text):
 
 if __name__ == "__main__":
     try:
-        transmit(sys.argv[1])
+        while True:
+            transmit(sys.argv[1])
+            logging.info("Sleeping for 10 seconds before transmitting again.")
+            time.sleep(10)
     except IndexError:
         quit("usage: ./morse.py '[text]'")
