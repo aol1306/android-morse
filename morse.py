@@ -60,7 +60,7 @@ def dot():
     logging.info("singal on")
     cmd = 'termux-vibrate -f -d '+str(DOT*1000)
     try:
-        ret = subprocess.call(cmd)
+        ret = subprocess.call(cmd, shell=True)
     except OSError as e:
         logging.error(e)
         logging.error("Install termux-api first!")
@@ -73,7 +73,7 @@ def dash():
     logging.info("singal on")
     cmd = 'termux-vibrate -f -d '+str(DOT*1000)
     try:
-        ret = subprocess.call(cmd)
+        ret = subprocess.call(cmd, shell=True)
     except OSError as e:
         logging.error(e)
         logging.error("Install termux-api first!")
