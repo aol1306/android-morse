@@ -1,11 +1,11 @@
-#!/usr/bin/python3
+#!/usr/bin/python2
 import time
 import logging
 import sys
-import os
+import subprocess
 
 # only set dot length
-DOT = 0.03
+DOT = 0.5
 DASH = 3*DOT
 
 
@@ -58,18 +58,24 @@ logging.basicConfig(level=logging.DEBUG)
 def dot():
     logging.debug("dot")
     logging.info("singal on")
-    ret = os.system('termux-vibrate -f -d '+str(DOT*1000))
-    if ret != 0:
-        raise RuntimeError ("Install termux-api first!")
+    cmd = 'termux-vibrate -f -d '+str(DOT*1000)
+    try:
+        ret = subprocess.call(cmd)
+    except:
+        logging.error("Install termux-api first!")
+        quit()
     time.sleep(DOT)
     logging.info("singal off")
 
 def dash():
     logging.debug("dash")
     logging.info("singal on")
-    os.system('termux-vibrate -f -d '+str(DASH*1000))
-    if ret != 0:
-        raise RuntimeError ("Install termux-api first!")
+    cmd = 'termux-vibrate -f -d '+str(DOT*1000)
+    try:
+        ret = subprocess.call(cmd)
+    except:
+        logging.error("Install termux-api first!")
+        quit()
     time.sleep(DASH)
     logging.info("singal off")
 
