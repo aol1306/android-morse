@@ -61,7 +61,8 @@ def dot():
     cmd = 'termux-vibrate -f -d '+str(DOT*1000)
     try:
         ret = subprocess.call(cmd)
-    except:
+    except OSError as e:
+        logging.error(e)
         logging.error("Install termux-api first!")
         quit()
     time.sleep(DOT)
@@ -73,7 +74,8 @@ def dash():
     cmd = 'termux-vibrate -f -d '+str(DOT*1000)
     try:
         ret = subprocess.call(cmd)
-    except:
+    except OSError as e:
+        logging.error(e)
         logging.error("Install termux-api first!")
         quit()
     time.sleep(DASH)
